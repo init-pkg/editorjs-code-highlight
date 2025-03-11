@@ -51,7 +51,7 @@ export default class EditorJsCodeHighlight implements BlockTool {
     this.api = api;
     this._data = {
       code: data?.code || EditorJsCodeHighlight.DEFAULT_PLACEHOLDER,
-      language: data?.language || "javascript",
+      language: data?.language || "html",
       showlinenumbers: data?.showlinenumbers ?? true,
       showCopyButton: data?.showCopyButton ?? true,
     };
@@ -89,7 +89,7 @@ export default class EditorJsCodeHighlight implements BlockTool {
   static get toolbox() {
     return {
       icon: icon,
-      title: "Code Highlight",
+      title: "Code",
     };
   }
 
@@ -123,10 +123,7 @@ export default class EditorJsCodeHighlight implements BlockTool {
   }
 
   protected _updateEditorHeight(length: number) {
-    let _height = length * 21 + 10;
-    if (_height < 60) {
-      _height = 60;
-    }
+    let _height = Math.min(length, 100) * 20 + 24;
 
     if (this._element) this._element.style.height = _height + "px";
   }
@@ -160,10 +157,6 @@ export default class EditorJsCodeHighlight implements BlockTool {
     }
 
     this.editorInstance?.updateLanguage(this.data.language);
-    console.log(this.editorInstance);
-    setTimeout(() => {
-      this.editorInstance?.highlight();
-    }, 0);
   };
 
   save(_: HTMLElement) {
@@ -258,7 +251,7 @@ export default class EditorJsCodeHighlight implements BlockTool {
     let langdisplay = document.createElement("div");
     langdisplay.classList.add("editorjs-code-highlight_LangDisplay");
 
-    langdisplay.innerHTML = this.data.language || "javascript";
+    langdisplay.innerHTML = this.data.language || "html";
 
     this._element.appendChild(editorElem);
     this._element.appendChild(langdisplay);

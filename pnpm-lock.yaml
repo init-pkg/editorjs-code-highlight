@@ -7,16 +7,15 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@init-kz/init-code-highlight-ts':
-        specifier: ^1.0.0
-        version: 1.0.0(prismjs@1.30.0)
     devDependencies:
       '@editorjs/editorjs':
         specifier: ^2.30.8
         version: 2.30.8
+      '@init-kz/init-code-highlight-ts':
+        specifier: ^1.0.6
+        version: 1.0.6(prismjs@1.30.0)
       '@types/node':
-        specifier: ^22.13.5
+        specifier: ^22.13.10
         version: 22.13.10
       http-server:
         specifier: ^14.1.1
@@ -25,10 +24,10 @@ importers:
         specifier: ^8.4.0
         version: 8.4.0(postcss@8.5.3)(typescript@5.8.2)
       typescript:
-        specifier: ^5.7.3
+        specifier: ^5.8.2
         version: 5.8.2
       vitest:
-        specifier: ^3.0.7
+        specifier: ^3.0.8
         version: 3.0.8(@types/node@22.13.10)(lightningcss@1.29.2)
 
 packages:
@@ -186,8 +185,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@init-kz/init-code-highlight-ts@1.0.0':
-    resolution: {integrity: sha512-JZ18+iNoXb2TKbK4kbePObje+OODEVkv95fzR6zTBv8Fzs1HwJcAOrCVvBsuYXlvvFqyY88GSBLiFMqabuFjbw==, tarball: https://registry.npmjs.org/@init-kz/init-code-highlight-ts/-/init-code-highlight-ts-1.0.0.tgz}
+  '@init-kz/init-code-highlight-ts@1.0.6':
+    resolution: {integrity: sha512-kdqAA7p8ipLPQhSTJ2VZw5DHNnTPo0t492soTf1b71iGGvYHxtTWcI/ucueyUIrqzXzn6L8+1NGj23Mle7aszQ==, tarball: https://registry.npmjs.org/@init-kz/init-code-highlight-ts/-/init-code-highlight-ts-1.0.6.tgz}
     peerDependencies:
       prismjs: ^1.30.0
 
@@ -1152,7 +1151,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.1':
     optional: true
 
-  '@init-kz/init-code-highlight-ts@1.0.0(prismjs@1.30.0)':
+  '@init-kz/init-code-highlight-ts@1.0.6(prismjs@1.30.0)':
     dependencies:
       prismjs: 1.30.0
 

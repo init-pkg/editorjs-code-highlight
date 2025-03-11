@@ -17,6 +17,7 @@
 
 .editorjs-code-highlight_Wrapper .editorjs-code-highlight_LangDisplay {
   position: absolute;
+  z-index: 999;
   height: 20px;
   line-height: 20px;
   font-size: 10px;

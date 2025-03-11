@@ -20,6 +20,7 @@
   "dependencies": {
     "@editorjs/editorjs": "^2.30.8",
     "@init-kz/editorjs-code-highlight": "link:..",
+    "@init-kz/init-code-highlight-ts": "^1.0.1",
     "prismjs": "^1.30.0"
   }
 }
