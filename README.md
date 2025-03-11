@@ -1,194 +1,82 @@
-# JSON Stream Parser (TypeScript Edition)
+
+# EditorJs - init-code-highlight-ts
 
 
 <p align="center">
-  <p align="center">
-    <a href="https://init.kz/en">
-      <img src="assets/favicon.svg" width="100"   height="100" alt="Logo">
-    </a>
-  </p>
-  InitCodeHighlight: A micro code-editor for awesome web pages.<br>
-  (Originally A Fork of <a href="https://github.com/kazzkiq/CodeFlask">CodeFlask</a>)
+  <a href="https://init.kz/en">
+    <img src="assets/favicon.svg" width="100"   height="100" alt="Logo">
+  </a>
 </p>
 
-<p align="center">
-  <img src="assets/code.png" width="739">
-</p>
+### NPM
+    npm i @init-kz/editorjs-code-highlight
 
-## Why?
-CodeFlask was a brilliant project, but seems to be unmaintained.
+## About
 
-### Kitchen Sink Example
+This is an EditorJs wrapper for [init-code-highlight-ts](https://github.com/init-pkg/init-code-highlight-ts) - A lovely lightweight zero-dep code formatter
 
-```js
-cup = new InitCodeHighlight('#cf_holder', {
-    language: "javascript",
-    lineNumbers: true ,
-    copyButton: true,
-    maxLines : 15,
-    minLines : 5
-});
-```
+It was built to be an improvement on :
+
+* https://github.com/editor-js/code - Too Basic
+* https://github.com/dev-juju/codebox - Agressive styling, and exports more data than markdown can handle
 
 
-### Changes
-* Added max line number option
-* Switched from rollup to webpack
-* Added example folder
-* disabled e2e tests
-* Small theme tweaks (Border, rounded corners.)
+## Built with:
 
-> [!IMPORTANT]
-> Languages are now loaded async (via prismjs), so you can load any language you want, without having to bundle them all. - Jan 2024
+* [init-code-highlight-ts](https://github.com/init-pkg/init-code-highlight-ts)
+* [Prism](https://www.npmjs.com/package/prismjs)
 
-> [!NOTE]
-> Languages supported are : [https://prismjs.com/#supported-languages](https://prismjs.com/#supported-languages)
-
-### Core Changes as PR
-> (Submitted as [PR](https://github.com/kazzkiq/CodeFlask/pull/134) to CodeFlask, incase it gets picked up again)
-* Added support to destroy
-* Added Linenumber add / remove
-* Added Linenumber toggle
-* Added Readonly toggle
 
 ---
 
-## Installation
+## Installation / use
 
-You can install InitCodeHighlight via npm:
+```javascript
+import EditorJS from '@editorjs/editorjs';
+import editorjsCode from '@init-kz/editorjs-code-highlight';
 
-```
-npm i @init-kz/init-code-highlight-ts
-```
-
-## Usage
-
-```js
-import InitCodeHighlight from '@init-kz/init-code-highlight-ts';
-
-const cup = new InitCodeHighlight('#my-selector', { language: 'js' });
-```
-You can also pass a DOM element instead of a selector:
-```js
-import InitCodeHighlight from '@init-kz/init-code-highlight-ts';
-
-const editorElem = document.getElementById('editor');
-const cup = new InitCodeHighlight(editorElem, { language: 'js' });
-```
-Usage with Shadow DOM:
-```js
-import InitCodeHighlight from '@init-kz/init-code-highlight-ts';
-...
-const shadowElem = this.shadowRoot.querySelector('#editor');
-const cup = new InitCodeHighlight(shadowElem, { language: 'js', styleParent: this.shadowRoot });
-```
-### Listening for changes in editor
-
-```js
-cup.onUpdate((code) => {
-  // do something with code here.
-  // this will trigger whenever the code
-  // in the editor changes.
-});
-```
-
-### Updating the editor programatically
-
-```js
-// This will also trigger .onUpdate()
-cup.updateCode('const my_new_code_here = "Blabla"');
-```
-
-### Getting the current code from editor
-
-```js
-const code = cup.getCode();
-```
-
-
-### Copy Button
-
-The copy button is now enabled by default, and will copy the code to the clipboard when clicked.
-
-it can be disabled by passing `copyButton: false` in the options.
-
-```js
-const cup = new InitCodeHighlight('#my-selector', {
-  language: 'javascript',
-  copyButton: false
+var editor = EditorJS({
+  // ...
+  tools: {
+    ...
+    code : editorjsCode
+  },
 });
 ```
 
 
-### Enabling line numbers
+## Data Format
+The data imported/exported from the block is as follows:
 
-```js
-import InitCodeHighlight from '@init-kz/init-code-highlight-ts';
-
-const cup = new InitCodeHighlight('#my-selector', {
-  language: 'js',
-  lineNumbers: true
-});
-```
-
-You can also toggle line numbers after the editor is created:
-
-```js
-cup.toggleLineNumbers();
-
-```
-
-### Setting max and min lines
+| Name                       | Description                                                |
+| -------------------------- | ---------------------------------------------------------- |
+| code                       | The code that is displayed in the editor, with line breaks |
+| language (optional)        | The programming language                                   |
+| showlinenumbers (optional) | Will show/hide the line numbers (Default true)             |
+| showCopyButton (optional)  | will show/hide the copy button (Defauly true)              |
+|                            |                                                            |
 
 
-> [!IMPORTANT]
-> As of `1.90`, You can also set the max line number, (Default is 100), And the min line number, (Default is 1)
-
-> [!NOTE]
-> If you want it to be a fixed number of lines, set both to the same number.
-
-```js
-import InitCodeHighlight from '@init-kz/init-code-highlight-ts';
-
-const cup = new InitCodeHighlight('#my-selector', {
-  language: 'js',
-  lineNumbers: true,
-  maxLines: 10,
-  minLines: 10
-});
-```
+Since language and linenumbers are optional, existing ```code``` blocks can safley use this plugin
 
 
-### Enabling read only mode
 
-```js
-import InitCodeHighlight from '@init-kz/init-code-highlight-ts';
+<!-- ---
 
-const cup = new InitCodeHighlight('#my-selector', {
-  language: 'javascript',
-  readonly: true
-});
-```
+## Markdown Compatability
 
-### changing other languages support:
+> TODO!
 
-```js
-cup.updateLanguage('ruby')
-//
-cup.updateLanguage('javascript')
-//
-```
+This plugin *will be* compatible with
 
-#### For Example to add change dynamically from 'Ruby' to 'javascript'
+    npm i editorjs-markdown-parser
 
-```js
-import Prism from 'prismjs';
-import InitCodeHighlight from '@init-kz/init-code-highlight-ts';
+It will import/export using the code fence markdown style, with the language printed imediatly after the first fence, as described in [GFM #117](https://github.github.com/gfm/#example-112)
 
-const cup = new InitCodeHighlight('#my-selector', {
-  language: 'ruby',
-  readonly: true
-});
+Line-numbers cant be expressed in markdown, so will be ommited
 
-cup.updateLanguage('javascript');
-```
+Example :
+
+    ```javascript
+    \\ Hello World
+    ``` -->
