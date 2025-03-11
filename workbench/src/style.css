@@ -1,0 +1,44 @@
+ body,
+ html {
+   margin: 0;
+   padding: 0;
+ }
+
+ .container {
+   margin: 0 auto;
+   width: 800px;
+   padding: 20px;
+ }
+
+ /*
+              #cf_holder{
+                  overflow: hidden;
+                  border : 1px solid #EAEEFB;
+                  border-radius: 4px;
+                  position: relative;
+              } */
+
+ button {
+   background-color: #fff;
+   color: #222;
+   padding: 8px 15px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   border: 1px solid #EAEEFB;
+   border-radius: 4px;
+   font-size: 12px;
+ }
+
+ button:hover {
+   background-color: #EAEEFB;
+   cursor: pointer;
+ }
+
+ .danger {
+   background-color: #FF5D5D;
+ }
+
+ h1 {
+   font-family: Arial, Helvetica, sans-serif;
+ }

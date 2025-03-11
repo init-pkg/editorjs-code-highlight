@@ -1,0 +1,74 @@
+.editorjs-code-highlight_Wrapper {
+  height: 200px;
+  border: 1px solid #dcdfe6;
+  border-radius: 5px;
+  background-color: #f0f2f5;
+  margin-bottom: 10px;
+
+  z-index: 0;
+  position: inherit;
+}
+
+.editorjs-code-highlight_Wrapper .code-highlight {
+  border-radius: 5px;
+  background: none;
+}
+
+
+.editorjs-code-highlight_Wrapper .editorjs-code-highlight_LangDisplay {
+  position: absolute;
+  height: 20px;
+  line-height: 20px;
+  font-size: 10px;
+  color: #999;
+  background-color: #dcdfe6;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  right: 0;
+  bottom: 0;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.editorjs-code-highlight_Wrapper .code-highlight.code-highlight--has-line-numbers:before {
+  background-color: #dcdfe6;
+}
+
+/* .wide{
+	width: 100%;
+
+	z-index: 10;
+    position: inherit;
+} */
+
+
+.editorjs-code-highlight_input {
+  background-color: #F8F8F8;
+  border-radius: 2px;
+  padding: 5px;
+  flex: 1;
+  margin-right: 5px;
+}
+
+.editorjs-code-highlight_input:focus {
+  outline: none;
+}
+
+.editorjs-code-highlight_inputButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editorjs-code-highlight_inputButton:hover {
+  border-radius: 2px;
+  background-color: #dcdfe6;
+  cursor: pointer;
+}
+
+.editorjs-code-highlight_inputContainer {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
